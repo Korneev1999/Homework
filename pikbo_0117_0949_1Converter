@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int i = 0;
+    float temp = 0;
+    char arg = 'N';
+    char stroka[20];
+    
+    gets(stroka);
+    temp = atof(stroka);
+    for (i = 0; i < 20; i++)
+        {
+            if (stroka[i] =='C' || stroka[i] =='c' || stroka[i] =='F' || stroka[i] =='f' || stroka[i] =='K' || stroka[i] =='k')
+            {arg = stroka[i];}
+        }
+        
+    switch (arg)
+    {
+        case 'N':
+            printf("For %.2f C:\n", temp);
+        case 'C':
+        case 'c':
+                if (temp > -273)
+                    {
+                        printf("%.2f F\t", 9.0 / 5.0 * temp + 32);
+                        printf("%.2f K\n", temp + 273.15);
+                    }
+                else
+                    {printf("Invalid temperature");}
+                if (arg != 'N')
+                    {break;}
+            printf("For %.2f F:\n", temp);
+        case 'F':
+        case 'f':
+                if (temp > -459.67)
+                    {
+                        printf("%.2f C\t", 5.0 / 9.0 * (temp - 32));
+                        printf("%.2f K\n", 5.0 / 9.0 * (temp - 32) - 273.15);
+                    }
+                else
+                    {printf("Invalid temperature");}
+                if (arg != 'N')
+                    {break;}
+            printf("For %.2f K:\n", temp);
+        case 'K':
+        case 'k':
+                if (temp > 0)
+                    {
+                        printf("%.2f C\t", temp - 273.15);
+                        printf("%.2f F\n", 9.0 / 5.0 * (temp - 273.15) + 32);
+                    }
+                else
+                    {printf("Invalid temperature");}
+        break;
+    }
+    return 0;
+}
