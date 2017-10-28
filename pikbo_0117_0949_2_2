@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    float res;
+    float a;
+
+    printf("Enter side length: ");
+    scanf("%f", &a);
+
+    res = a * a - (a / 2.0) * (a / 2.0) * 22.0 / 7.0 ;
+
+    printf("Result %.2f", res);
+
+    return 0;
+}
